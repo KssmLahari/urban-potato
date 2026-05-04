@@ -23,21 +23,26 @@ const metaDescription = `${COMPANY.mission} ${COMPANY.displayName} is a veteran-
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: COMPANY.websiteDisplay,
   title: {
-    default: `${COMPANY.displayName} | ${COMPANY.legalName}`,
-    template: `%s | ${COMPANY.displayName}`,
+    default: `${COMPANY.displayName} | ${COMPANY.websiteDisplay}`,
+    template: `%s | ${COMPANY.websiteDisplay}`,
   },
   description: metaDescription,
   openGraph: {
-    title: `${COMPANY.displayName} | Veteran-owned trucking`,
+    title: `${COMPANY.displayName} | ${COMPANY.websiteDisplay}`,
     description: metaDescription,
     type: "website",
     locale: "en_US",
-    siteName: COMPANY.displayName,
+    siteName: COMPANY.websiteDisplay,
+    url: siteUrl,
+  },
+  alternates: {
+    canonical: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.displayName} | Veteran-owned trucking`,
+    title: `${COMPANY.displayName} | ${COMPANY.websiteDisplay}`,
     description: metaDescription,
   },
   robots: { index: true, follow: true },

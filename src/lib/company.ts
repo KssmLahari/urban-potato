@@ -13,12 +13,7 @@ export const COMPANY = {
   email: "nulientransportationllc@gmail.com",
   addressLine1: "130 Wading Bird Circle SW",
   addressLine2: "Palm Bay, Florida 32908",
-  /** Correct spelling; avoid double “t” in “transportation” */
-  suggestedDomains: [
-    "nulientransportation.com",
-    "nulientransportationllc.com",
-    "gonulien.com",
-  ],
+  websiteDisplay: "nulientransportation.com",
 } as const;
 
 /** Single-line address for map links and sharing */

@@ -5,6 +5,7 @@ import {
   getAppleMapsUrl,
   getGoogleMapsUrl,
 } from "@/lib/company";
+import { PUBLIC_SITE_ORIGIN } from "@/lib/site";
 
 export function ContactCTA() {
   return (
@@ -46,6 +47,19 @@ export function ContactCTA() {
                     className="text-lg break-all text-white underline-offset-4 hover:underline"
                   >
                     {COMPANY.email}
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-wider text-blue-300">
+                  Website
+                </dt>
+                <dd className="mt-1">
+                  <a
+                    href={PUBLIC_SITE_ORIGIN}
+                    className="text-lg text-white underline-offset-4 hover:underline"
+                  >
+                    {COMPANY.websiteDisplay}
                   </a>
                 </dd>
               </div>
@@ -125,8 +139,7 @@ export function ContactCTA() {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 placeholder:text-slate-600 focus:ring-2"
-                  placeholder="Your name"
+                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-1">
@@ -136,8 +149,7 @@ export function ContactCTA() {
                 <input
                   name="company"
                   type="text"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 placeholder:text-slate-600 focus:ring-2"
-                  placeholder="Company (optional)"
+                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-2">
@@ -148,8 +160,7 @@ export function ContactCTA() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 placeholder:text-slate-600 focus:ring-2"
-                  placeholder="you@company.com"
+                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-2">
@@ -159,8 +170,7 @@ export function ContactCTA() {
                 <textarea
                   name="details"
                   rows={4}
-                  className="w-full resize-y rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 placeholder:text-slate-600 focus:ring-2"
-                  placeholder="Origin, destination, dates, commodity, equipment needed…"
+                  className="w-full resize-y rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
             </div>

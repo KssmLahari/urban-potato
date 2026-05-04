@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { COMPANY, getGoogleMapsUrl } from "@/lib/company";
+import { PUBLIC_SITE_ORIGIN } from "@/lib/site";
 import { LogoMark } from "./LogoMark";
 
 const quick = [
@@ -45,6 +46,13 @@ export function SiteFooter() {
             <p className="max-w-sm text-sm text-muted sm:text-right">
               © {new Date().getFullYear()} {COMPANY.legalName}.{" "}
               <a
+                href={PUBLIC_SITE_ORIGIN}
+                className="text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
+              >
+                {COMPANY.websiteDisplay}
+              </a>
+              {" · "}
+              <a
                 href={getGoogleMapsUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -53,9 +61,6 @@ export function SiteFooter() {
                 {COMPANY.addressLine1}, {COMPANY.addressLine2}
               </a>
               .
-            </p>
-            <p className="max-w-sm text-xs text-muted sm:text-right">
-              Domain ideas: {COMPANY.suggestedDomains.join(", ")}.
             </p>
             <Link
               href="#top"
