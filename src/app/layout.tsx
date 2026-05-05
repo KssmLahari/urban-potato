@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Outfit } from "next/font/google";
+import { SiteShell } from "@/components/portal/SiteShell";
 import { COMPANY } from "@/lib/company";
 import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
@@ -35,10 +36,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: COMPANY.websiteDisplay,
-    url: siteUrl,
-  },
-  alternates: {
-    canonical: siteUrl,
   },
   twitter: {
     card: "summary_large_image",
@@ -49,6 +46,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f4f7fc" },
     { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
@@ -63,6 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${outfit.variable} ${archivo.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
@@ -72,7 +74,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );

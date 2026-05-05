@@ -7,19 +7,29 @@ import {
 } from "@/lib/company";
 import { PUBLIC_SITE_ORIGIN } from "@/lib/site";
 
-export function ContactCTA() {
+const headingClass =
+  "font-display text-3xl font-bold tracking-tight sm:text-4xl";
+
+export function ContactCTA({ standalone = false }: { standalone?: boolean }) {
+  const title = "Let's talk about your freight";
   return (
     <section
-      id="contact"
-      className="scroll-mt-20 bg-slate-950 px-4 py-20 text-white sm:px-6 sm:py-28"
+      {...(!standalone ? { id: "contact" } : {})}
+      className={
+        standalone
+          ? "bg-slate-950 px-4 py-16 pb-[max(4rem,env(safe-area-inset-bottom,0px))] pt-16 text-white sm:px-6 sm:py-28 sm:pb-28"
+          : "scroll-mt-20 bg-slate-950 px-4 py-16 text-white sm:px-6 sm:py-28"
+      }
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
-              Let&apos;s talk about your freight
-            </h2>
-            <p className="mt-4 text-lg text-slate-400">
+            {standalone ? (
+              <h1 className={headingClass}>{title}</h1>
+            ) : (
+              <h2 className={headingClass}>{title}</h2>
+            )}
+            <p className="mt-4 text-base leading-relaxed text-slate-400 sm:text-lg">
               Share your lane, timing, and equipment needs—we&apos;ll follow up
               with availability and next steps.
             </p>
@@ -112,7 +122,7 @@ export function ContactCTA() {
             </div>
           </div>
           <form
-            className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6 sm:p-8"
+            className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5 sm:p-8"
             onSubmit={(e) => {
               const form = e.currentTarget;
               const fd = new FormData(form);
@@ -139,7 +149,7 @@ export function ContactCTA() {
                   name="name"
                   type="text"
                   autoComplete="name"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
+                  className="min-h-12 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-1">
@@ -149,7 +159,7 @@ export function ContactCTA() {
                 <input
                   name="company"
                   type="text"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
+                  className="min-h-12 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-2">
@@ -160,7 +170,7 @@ export function ContactCTA() {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
+                  className="min-h-12 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
               <label className="sm:col-span-2">
@@ -169,14 +179,14 @@ export function ContactCTA() {
                 </span>
                 <textarea
                   name="details"
-                  rows={4}
-                  className="w-full resize-y rounded-lg border border-slate-700 bg-slate-950 px-3 py-2.5 text-white outline-none ring-blue-500/50 focus:ring-2"
+                  rows={5}
+                  className="min-h-[8.5rem] w-full resize-y rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-base text-white outline-none ring-blue-500/50 focus:ring-2"
                 />
               </label>
             </div>
             <button
               type="submit"
-              className="mt-6 w-full rounded-full bg-accent py-3 text-base font-semibold text-white transition hover:bg-accent-hover sm:w-auto sm:px-10"
+              className="mt-6 min-h-[52px] w-full rounded-full bg-accent py-3.5 text-base font-semibold text-white shadow-lg shadow-blue-950/30 transition active:bg-blue-800 hover:bg-accent-hover sm:w-auto sm:px-10"
             >
               Open email to send
             </button>

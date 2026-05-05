@@ -19,19 +19,29 @@ const equipment = [
   },
 ];
 
-export function FleetShowcase() {
+const headingClass =
+  "font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl";
+
+export function FleetShowcase({ standalone = false }: { standalone?: boolean }) {
+  const title = "Fleet & equipment";
   return (
     <section
-      id="fleet"
-      className="scroll-mt-20 bg-background px-4 py-20 sm:px-6 sm:py-28"
+      {...(!standalone ? { id: "fleet" } : {})}
+      className={
+        standalone
+          ? "bg-background px-4 py-16 sm:px-6 sm:py-28"
+          : "scroll-mt-20 bg-background px-4 py-16 sm:px-6 sm:py-28"
+      }
     >
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Fleet & equipment
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            {standalone ? (
+              <h1 className={headingClass}>{title}</h1>
+            ) : (
+              <h2 className={headingClass}>{title}</h2>
+            )}
+            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
               {FLEET_STORY.lead} {FLEET_STORY.body}
             </p>
           </div>
@@ -62,7 +72,7 @@ export function FleetShowcase() {
           {equipment.map((unit) => (
             <article
               key={unit.title}
-              className="rounded-2xl border border-border bg-surface p-6 shadow-sm transition hover:border-blue-200 lg:p-8"
+              className="rounded-2xl border border-border bg-surface p-5 shadow-md shadow-slate-900/[0.04] transition hover:border-blue-200 sm:p-6 lg:p-8"
             >
               <h3 className="font-display text-xl font-bold text-slate-900">
                 {unit.title}

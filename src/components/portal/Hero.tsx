@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[520px] overflow-hidden px-4 pb-24 pt-16 text-white sm:min-h-[560px] sm:px-6 sm:pb-32 sm:pt-24"
+      className="relative min-h-[min(100dvh,940px)] overflow-hidden px-4 pb-[max(5rem,env(safe-area-inset-bottom,0px))] pt-[max(4.5rem,env(safe-area-inset-top,0px))] text-white sm:px-6 sm:pb-28 sm:pt-24 md:pt-28"
     >
       <div className="absolute inset-0">
         <Image
@@ -21,15 +21,16 @@ export function Hero() {
           alt="Nulien Transportation royal blue Freightliner Cascadia tractor"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-[72%_42%] sm:object-[75%_center] md:object-right md:object-center"
           sizes="100vw"
         />
+        {/* Stronger scrim on small screens so type stays readable over the truck */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/92 to-slate-950/55"
+          className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/82 to-slate-950/55 sm:bg-gradient-to-r sm:from-slate-950 sm:via-slate-950/78 sm:to-slate-950/20"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute inset-0 opacity-25"
+          className="pointer-events-none absolute inset-0 opacity-[0.12] sm:opacity-15"
           style={{
             backgroundImage: `linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
             linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px)`,
@@ -38,42 +39,46 @@ export function Hero() {
           aria-hidden
         />
       </div>
-      <div className="pointer-events-none absolute -right-24 top-1/3 h-72 w-72 rounded-full bg-blue-600/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-1/4 h-64 w-64 rounded-full bg-blue-500/25 blur-3xl sm:top-1/3 sm:h-72 sm:w-72 md:bg-blue-400/15" />
       <div className="relative mx-auto max-w-6xl">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-300">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-blue-200 sm:mb-4 sm:text-sm sm:tracking-widest">
           Veteran-owned · Licensed & insured
         </p>
-        <p className="font-display text-xl font-semibold text-blue-100 sm:text-2xl">
+        <p className="font-display text-lg font-semibold leading-snug text-blue-100 sm:text-xl md:text-2xl">
           {COMPANY.tagline}
         </p>
-        <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 className="mt-4 max-w-[20ch] font-display text-[1.85rem] font-extrabold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.45)] min-[400px]:max-w-none min-[400px]:text-4xl sm:text-5xl lg:text-6xl">
           Your cargo,{" "}
-          <span className="text-blue-300">safely from A to B.</span>
+          <span className="text-blue-200 drop-shadow-md sm:text-blue-300">
+            safely from A to B.
+          </span>
         </h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200 sm:text-xl">
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-100 sm:mt-6 sm:text-lg md:text-xl">
           {COMPANY.mission} {COMPANY.coverage}
         </p>
-        <div className="mt-10 flex flex-wrap gap-4">
+        <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap">
           <Link
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-base font-semibold text-white shadow-lg shadow-blue-900/40 outline-none ring-offset-2 ring-offset-slate-950 transition hover:bg-accent-hover focus-visible:ring-2 focus-visible:ring-blue-300"
+            href="/contact"
+            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-accent px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-black/25 outline-none ring-offset-2 ring-offset-slate-950 transition active:scale-[0.99] active:bg-blue-800 hover:bg-accent-hover focus-visible:ring-2 focus-visible:ring-blue-300 sm:w-auto sm:min-h-[48px]"
           >
             Get a freight quote
           </Link>
           <Link
-            href="#fleet"
-            className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/5 px-6 py-3 text-base font-semibold text-white outline-none ring-blue-300/60 ring-offset-2 ring-offset-slate-950 backdrop-blur-sm transition hover:border-white/50 hover:bg-white/10 focus-visible:ring-2"
+            href="/fleet"
+            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border-2 border-white/35 bg-white/10 px-8 py-3.5 text-base font-semibold text-white shadow-md outline-none ring-blue-300/50 ring-offset-2 ring-offset-slate-950 backdrop-blur-md transition active:scale-[0.99] hover:border-white/55 hover:bg-white/15 focus-visible:ring-2 sm:w-auto sm:min-h-[48px]"
           >
             Meet our fleet
           </Link>
         </div>
-        <dl className="mt-16 grid grid-cols-2 gap-6 border-t border-white/10 pt-10 sm:grid-cols-4 sm:gap-8">
+        <dl className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-white/15 pt-10 sm:mt-16 sm:grid-cols-4 sm:gap-8">
           {stats.map((row) => (
             <div key={row.k}>
-              <dt className="font-display text-xl font-bold leading-snug text-white sm:text-2xl">
+              <dt className="font-display text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl md:text-2xl">
                 {row.k}
               </dt>
-              <dd className="mt-1 text-sm text-slate-400">{row.v}</dd>
+              <dd className="mt-1.5 text-sm leading-snug text-slate-300 sm:text-slate-400">
+                {row.v}
+              </dd>
             </div>
           ))}
         </dl>

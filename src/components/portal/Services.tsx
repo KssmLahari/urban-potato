@@ -19,18 +19,28 @@ const items = [
   },
 ];
 
-export function Services() {
+const headingClass =
+  "font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl";
+
+export function Services({ standalone = false }: { standalone?: boolean }) {
+  const title = "How we serve shippers";
   return (
     <section
-      id="services"
-      className="scroll-mt-20 border-b border-border bg-surface px-4 py-20 sm:px-6 sm:py-28"
+      {...(!standalone ? { id: "services" } : {})}
+      className={
+        standalone
+          ? "border-b border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
+          : "scroll-mt-20 border-b border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
+      }
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-2xl">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            How we serve shippers
-          </h2>
-          <p className="mt-4 text-lg text-muted">
+          {standalone ? (
+            <h1 className={headingClass}>{title}</h1>
+          ) : (
+            <h2 className={headingClass}>{title}</h2>
+          )}
+          <p className="mt-4 text-base text-muted sm:text-lg">
             From Palm Bay, Florida to loading docks across the continental United
             States—one carrier focused on trust and safe delivery.
           </p>
@@ -39,7 +49,7 @@ export function Services() {
           {items.map((item) => (
             <li
               key={item.title}
-              className="rounded-2xl border border-border bg-background p-6 shadow-sm transition hover:border-blue-200 hover:shadow-md lg:p-8"
+              className="rounded-2xl border border-border bg-background p-5 shadow-md shadow-slate-900/[0.04] transition hover:border-blue-200 hover:shadow-lg sm:p-6 lg:p-8"
             >
               <h3 className="font-display text-xl font-bold text-slate-900">
                 {item.title}

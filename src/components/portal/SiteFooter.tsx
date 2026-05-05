@@ -1,25 +1,19 @@
 import Link from "next/link";
 import { COMPANY, getGoogleMapsUrl } from "@/lib/company";
+import { PRIMARY_NAV } from "@/lib/nav";
 import { PUBLIC_SITE_ORIGIN } from "@/lib/site";
 import { LogoMark } from "./LogoMark";
 
-const quick = [
-  { href: "#services", label: "Services" },
-  { href: "#fleet", label: "Fleet" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-];
-
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-background px-4 py-12 sm:px-6">
+    <footer className="border-t border-border bg-background px-4 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:py-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-2 text-slate-900">
-              <LogoMark className="h-8 w-8" />
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center gap-3 text-slate-900">
+              <LogoMark className="h-9 w-9 sm:h-10 sm:w-10" />
               <div>
-                <div className="font-display text-lg font-bold">
+                <div className="font-display text-lg font-bold sm:text-xl">
                   {COMPANY.displayName}
                 </div>
                 <div className="text-xs font-medium uppercase tracking-wide text-muted">
@@ -28,12 +22,12 @@ export function SiteFooter() {
               </div>
             </div>
             <nav aria-label="Footer">
-              <ul className="flex flex-wrap gap-x-6 gap-y-2">
-                {quick.map((item) => (
+              <ul className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
+                {PRIMARY_NAV.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-sm font-medium text-muted outline-none ring-accent/40 transition hover:text-foreground focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2"
+                      className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition active:text-accent hover:text-foreground focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:text-sm"
                     >
                       {item.label}
                     </Link>
@@ -42,12 +36,12 @@ export function SiteFooter() {
               </ul>
             </nav>
           </div>
-          <div className="flex flex-col gap-4 sm:items-end">
-            <p className="max-w-sm text-sm text-muted sm:text-right">
+          <div className="flex flex-col gap-4 border-t border-border pt-8 sm:border-t-0 sm:pt-0 sm:text-right">
+            <p className="max-w-md text-base leading-relaxed text-muted sm:max-w-sm sm:text-sm">
               © {new Date().getFullYear()} {COMPANY.legalName}.{" "}
               <a
                 href={PUBLIC_SITE_ORIGIN}
-                className="text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
+                className="font-medium text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
               >
                 {COMPANY.websiteDisplay}
               </a>
@@ -56,17 +50,17 @@ export function SiteFooter() {
                 href={getGoogleMapsUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
+                className="font-medium text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
               >
                 {COMPANY.addressLine1}, {COMPANY.addressLine2}
               </a>
               .
             </p>
             <Link
-              href="#top"
-              className="text-sm font-medium text-accent outline-none ring-accent/40 hover:text-accent-hover focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:self-end"
+              href="/"
+              className="inline-flex min-h-[44px] items-center text-base font-semibold text-accent outline-none ring-accent/40 hover:text-accent-hover focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
             >
-              Back to top
+              Home
             </Link>
           </div>
         </div>
