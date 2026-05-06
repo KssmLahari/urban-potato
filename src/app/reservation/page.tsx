@@ -30,6 +30,8 @@ export default function ReservationPage() {
           action={`mailto:${COMPANY.infoEmail}`}
           method="post"
           encType="text/plain"
+          autoComplete="on"
+          noValidate
         >
           <div className="grid gap-4 sm:grid-cols-2">
             <label>
@@ -39,6 +41,7 @@ export default function ReservationPage() {
               <input
                 name="company"
                 type="text"
+                autoComplete="organization"
                 className="min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2"
               />
             </label>
@@ -49,6 +52,7 @@ export default function ReservationPage() {
               <input
                 name="contact"
                 type="text"
+                autoComplete="name"
                 className="min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2"
               />
             </label>
@@ -60,6 +64,7 @@ export default function ReservationPage() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                inputMode="email"
                 className="min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2"
               />
             </label>
@@ -89,6 +94,7 @@ export default function ReservationPage() {
                 name="pickup"
                 type="text"
                 placeholder="City, state and date/time"
+                autoComplete="off"
                 className="min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2"
               />
             </label>
@@ -100,6 +106,7 @@ export default function ReservationPage() {
                 name="delivery"
                 type="text"
                 placeholder="City, state and date/time"
+                autoComplete="off"
                 className="min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2"
               />
             </label>
