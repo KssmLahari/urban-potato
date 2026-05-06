@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { COMPANY } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Reservation",
-  description: `Reserve equipment and lane coverage with ${COMPANY.displayName}. Submit pickup, delivery, and freight details to start scheduling.`,
+  title: "Quote Request",
+  description: `Request a freight quote from ${COMPANY.displayName}. Share pickup, delivery, and freight details to get pricing and availability.`,
   alternates: { canonical: "/reservation" },
   openGraph: { url: "/reservation" },
 };
@@ -13,16 +13,16 @@ export default function ReservationPage() {
     <section className="border-b border-blue-100/80 bg-gradient-to-b from-background via-blue-50/45 to-amber-50/30 px-4 py-14 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <h1 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-[2.5rem]">
-          Reservation request
+          Freight quote request
         </h1>
         <div
           className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-amber-300 shadow-sm shadow-amber-500/20"
           aria-hidden
         />
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-          Share your pickup window, delivery deadline, equipment type, and cargo
-          notes. Our dispatch team reviews requests quickly and replies with
-          availability and next steps.
+          Share your pickup lane, delivery timing, equipment type, and cargo
+          details. Our dispatch team reviews requests quickly and replies with
+          pricing and next steps.
         </p>
 
         <form
@@ -119,10 +119,10 @@ export default function ReservationPage() {
             type="submit"
             className="mt-6 min-h-[52px] w-full rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover sm:w-auto"
           >
-            Open email to submit request
+            Open email to send quote request
           </button>
           <p className="mt-4 text-xs text-muted">
-            This opens your email app and drafts a reservation request to{" "}
+            This opens your email app and drafts a quote request to{" "}
             {COMPANY.infoEmail}.
           </p>
         </form>

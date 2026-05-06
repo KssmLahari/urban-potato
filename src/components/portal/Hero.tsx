@@ -94,7 +94,7 @@ export function Hero() {
         </p>
         <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap">
           <Link
-            href="/contact"
+            href="/reservation"
             className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/30 outline-none ring-offset-2 ring-offset-slate-950 transition-all duration-200 active:scale-[0.99] active:bg-amber-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2 focus-visible:ring-amber-300 sm:w-auto sm:min-h-[48px]"
           >
             Get a freight quote
