@@ -9,7 +9,7 @@ const org = {
   description: `${COMPANY.mission} Veteran-owned semi-truck carrier; 53-foot dry van; based in Palm Bay, Florida.`,
   url: "",
   telephone: COMPANY.phoneTel,
-  email: COMPANY.email,
+  email: COMPANY.infoEmail,
   address: {
     "@type": "PostalAddress",
     streetAddress: COMPANY.addressLine1,

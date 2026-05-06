@@ -23,7 +23,10 @@ export function Hero() {
 
     const updateParallax = () => {
       const y = window.scrollY;
-      const truckOffset = Math.min(y * 0.08, 36);
+      const isSmallScreen = window.innerWidth < 640;
+      const truckOffset = isSmallScreen
+        ? Math.min(y * 0.035, 14)
+        : Math.min(y * 0.08, 36);
       const layer = truckLayerRef.current;
       if (layer) {
         layer.style.setProperty("--hero-parallax-y", `${truckOffset}px`);
@@ -47,20 +50,21 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[min(100dvh,940px)] overflow-hidden px-4 pb-[max(5rem,env(safe-area-inset-bottom,0px))] pt-[max(4.5rem,env(safe-area-inset-top,0px))] text-white sm:px-6 sm:pb-28 sm:pt-24 md:pt-28"
+      className="relative min-h-[min(100dvh,940px)] overflow-hidden px-4 pb-[max(4.25rem,env(safe-area-inset-bottom,0px))] pt-[max(4rem,env(safe-area-inset-top,0px))] text-white sm:px-6 sm:pb-28 sm:pt-24 md:pt-28"
     >
       <div ref={truckLayerRef} className="hero-truck-parallax absolute inset-0">
         <Image
-          src="/images/nulien/tractor-front.png"
-          alt="Nulien Transportation royal blue Freightliner Cascadia tractor"
+          src="/images/nulien/hero-truck-stock.jpg"
+          alt="Modern semi-truck on highway"
           fill
           priority
-          className="hero-truck-motion object-cover object-[72%_42%] sm:object-[75%_center] md:object-right md:object-center"
+          quality={100}
+          className="hero-truck-motion object-cover object-[62%_52%] sm:object-[72%_52%] md:object-center"
           sizes="100vw"
         />
         {/* Stronger scrim on small screens so type stays readable over the truck */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-slate-950/95 via-slate-950/82 to-slate-950/55 sm:bg-gradient-to-r sm:from-slate-950 sm:via-slate-950/78 sm:to-slate-950/20"
+          className="absolute inset-0 bg-gradient-to-b from-slate-950/74 via-slate-950/54 to-slate-950/26 sm:bg-gradient-to-r sm:from-slate-950 sm:via-slate-950/78 sm:to-slate-950/20"
           aria-hidden
         />
         <div

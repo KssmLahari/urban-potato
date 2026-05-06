@@ -4,7 +4,7 @@ import { ContactCTA } from "@/components/portal/ContactCTA";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${COMPANY.displayName} for freight quotes and owner-operator inquiries. ${COMPANY.phoneDisplay} · ${COMPANY.email}`,
+  description: `Contact ${COMPANY.displayName} for freight quotes and owner-operator inquiries. ${COMPANY.phoneDisplay} · ${COMPANY.infoEmail}`,
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact" },
 };

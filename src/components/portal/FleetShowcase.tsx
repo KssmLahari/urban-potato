@@ -80,11 +80,11 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
                 alt: "Nulien Transportation tractor at Palm Bay, Florida, with palm trees in the background",
               },
               {
-                src: "/images/nulien/reefer-stock.jpg",
+                src: "/images/nulien/reefer-stock-v2.jpg",
                 alt: "Reefer trailer reference image",
               },
               {
-                src: "/images/nulien/flatbed-stock.jpg",
+                src: "/images/nulien/flatbed-stock-v2.jpg",
                 alt: "Flatbed trailer reference image",
               },
             ] as const
@@ -121,8 +121,8 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
         </div>
         <ScrollReveal delayMs={120}>
           <p className="mt-6 text-xs text-muted">
-          Reefer and flatbed reference photos are from Wikimedia Commons (CC
-          BY 2.0) for temporary portfolio visualization.
+          Hero, reefer, and flatbed reference photos are from Wikimedia Commons
+          (CC BY 2.0 / CC BY-SA) for temporary portfolio visualization.
           </p>
         </ScrollReveal>
       </div>
