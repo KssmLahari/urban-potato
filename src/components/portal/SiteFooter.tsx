@@ -6,7 +6,7 @@ import { LogoMark } from "./LogoMark";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-background px-4 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:py-12">
+    <footer className="border-t border-blue-100/80 bg-gradient-to-b from-background to-blue-50/30 px-4 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:py-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex flex-col gap-5">
@@ -27,7 +27,7 @@ export function SiteFooter() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition active:text-accent hover:text-foreground focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:text-sm"
+                      className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 active:text-accent hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:text-sm"
                     >
                       {item.label}
                     </Link>
@@ -41,7 +41,7 @@ export function SiteFooter() {
               © {new Date().getFullYear()} {COMPANY.legalName}.{" "}
               <a
                 href={PUBLIC_SITE_ORIGIN}
-                className="font-medium text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
+                className="font-medium text-foreground underline decoration-border underline-offset-2 transition-colors duration-200 hover:text-accent hover:decoration-accent"
               >
                 {COMPANY.websiteDisplay}
               </a>
@@ -50,7 +50,7 @@ export function SiteFooter() {
                 href={getGoogleMapsUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-foreground underline decoration-border underline-offset-2 transition hover:text-accent hover:decoration-accent"
+                className="font-medium text-foreground underline decoration-border underline-offset-2 transition-colors duration-200 hover:text-accent hover:decoration-accent"
               >
                 {COMPANY.addressLine1}, {COMPANY.addressLine2}
               </a>
@@ -58,7 +58,7 @@ export function SiteFooter() {
             </p>
             <Link
               href="/"
-              className="inline-flex min-h-[44px] items-center text-base font-semibold text-accent outline-none ring-accent/40 hover:text-accent-hover focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+              className="inline-flex min-h-[44px] items-center text-base font-semibold text-accent outline-none ring-accent/40 transition-colors duration-200 hover:text-accent-hover focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
             >
               Home
             </Link>

@@ -1,21 +1,28 @@
+import Image from "next/image";
 import { COMPANY } from "@/lib/company";
+import {
+  CONTENT_CARD_CLASS,
+  MEDIA_CARD_CLASS,
+  PAGE_SECTION_CLASS,
+  PAGE_TITLE_RULE_CLASS,
+} from "@/lib/pageStyles";
 
 const items = [
   {
-    title: "Point-to-point freight",
-    body: COMPANY.mission,
+    title: "53-foot dry van",
+    body: "Reliable over-the-road dry freight with secure, weather-protected trailer capacity for retail and general commodities.",
   },
   {
-    title: "Nationwide reach",
-    body: `${COMPANY.coverage} We run semi-truck and 53-foot dry van equipment built for long-haul reliability.`,
+    title: "Reefer trailer service",
+    body: "Temperature-controlled hauling for products that need a cold chain from pickup to delivery.",
   },
   {
-    title: "Safety & accountability",
-    body: "Clear communication, careful securement, and respect for your timelines—so you always know where your freight stands.",
+    title: "Flatbed hauling",
+    body: "Open-deck transport for oversized or specialized freight with proper securement and route planning.",
   },
   {
     title: "Owner-operator partners",
-    body: "We partner with owner-operators who own their trucks and share our standards for equipment, professionalism, and on-time service.",
+    body: `${COMPANY.coverage} We partner with owner-operators who own their trucks and share our safety and service standards.`,
   },
 ];
 
@@ -29,8 +36,8 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
       {...(!standalone ? { id: "services" } : {})}
       className={
         standalone
-          ? "border-b border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
-          : "scroll-mt-20 border-b border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
+          ? PAGE_SECTION_CLASS
+          : `scroll-mt-20 ${PAGE_SECTION_CLASS}`
       }
     >
       <div className="mx-auto max-w-6xl">
@@ -40,16 +47,47 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
           ) : (
             <h2 className={headingClass}>{title}</h2>
           )}
-          <p className="mt-4 text-base text-muted sm:text-lg">
+          <div className={PAGE_TITLE_RULE_CLASS} aria-hidden />
+          <p className="mt-6 text-base text-muted sm:text-lg">
             From Palm Bay, Florida to loading docks across the continental United
             States—one carrier focused on trust and safe delivery.
           </p>
+        </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <article className={`${MEDIA_CARD_CLASS} bg-background`}>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src="/images/nulien/reefer-stock.jpg"
+                alt="Reefer semi-trailer on highway"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <p className="border-t border-blue-100/70 bg-gradient-to-r from-white to-blue-50/50 px-4 py-3 text-sm font-semibold text-slate-800">
+              Reefer trailer capabilities
+            </p>
+          </article>
+          <article className={`${MEDIA_CARD_CLASS} bg-background`}>
+            <div className="relative aspect-[16/10]">
+              <Image
+                src="/images/nulien/flatbed-stock.jpg"
+                alt="Flatbed semi-trailer carrying cargo"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <p className="border-t border-blue-100/70 bg-gradient-to-r from-white to-amber-50/40 px-4 py-3 text-sm font-semibold text-slate-800">
+              Flatbed hauling support
+            </p>
+          </article>
         </div>
         <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:gap-8">
           {items.map((item) => (
             <li
               key={item.title}
-              className="rounded-2xl border border-border bg-background p-5 shadow-md shadow-slate-900/[0.04] transition hover:border-blue-200 hover:shadow-lg sm:p-6 lg:p-8"
+              className={CONTENT_CARD_CLASS}
             >
               <h3 className="font-display text-xl font-bold text-slate-900">
                 {item.title}

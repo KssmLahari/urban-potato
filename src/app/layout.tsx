@@ -51,7 +51,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f7fc" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f7ff" },
     { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
   ],
 };
@@ -70,7 +70,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <a
           href="#content"
-          className="pointer-events-none fixed left-4 top-4 z-[100] -translate-y-16 rounded-full bg-blue-900 px-4 py-2 text-sm font-semibold text-white opacity-0 shadow-lg transition focus:pointer-events-auto focus:translate-y-0 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-offset-2"
+          className="pointer-events-none fixed left-4 top-4 z-[100] -translate-y-16 rounded-full bg-blue-900 px-4 py-2 text-sm font-semibold text-white opacity-0 shadow-lg transition focus:pointer-events-auto focus:translate-y-0 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
         >
           Skip to main content
         </a>

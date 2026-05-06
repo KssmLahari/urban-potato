@@ -11,6 +11,8 @@ export const COMPANY = {
   phoneDisplay: "(808) 319-6236",
   phoneTel: "+18083196236",
   email: "nulientransportationllc@gmail.com",
+  infoEmail: "info@nulientransportation.com",
+  ownerEmail: "natanael92@nulientransportation.com",
   addressLine1: "130 Wading Bird Circle SW",
   addressLine2: "Palm Bay, Florida 32908",
   websiteDisplay: "nulientransportation.com",

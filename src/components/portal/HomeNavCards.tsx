@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HOME_BAND_CLASS, PAGE_TITLE_RULE_CLASS } from "@/lib/pageStyles";
 import { PRIMARY_NAV } from "@/lib/nav";
 
 const blurbs: Record<string, string> = {
@@ -10,10 +11,7 @@ const blurbs: Record<string, string> = {
 
 export function HomeNavCards() {
   return (
-    <section
-      className="border-b border-border bg-gradient-to-b from-background to-slate-100/40 px-4 py-14 sm:px-6 sm:py-20"
-      aria-labelledby="explore-heading"
-    >
+    <section className={HOME_BAND_CLASS} aria-labelledby="explore-heading">
       <div className="mx-auto max-w-6xl">
         <h2
           id="explore-heading"
@@ -21,7 +19,8 @@ export function HomeNavCards() {
         >
           Explore the site
         </h2>
-        <p className="mt-3 max-w-2xl text-base text-muted sm:text-lg">
+        <div className={PAGE_TITLE_RULE_CLASS} aria-hidden />
+        <p className="mt-6 max-w-2xl text-base text-muted sm:text-lg">
           Each topic has its own page—open what you need and share the link with
           your team.
         </p>
@@ -30,7 +29,7 @@ export function HomeNavCards() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="flex min-h-[7.5rem] flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-md shadow-slate-900/[0.04] outline-none ring-accent/25 transition active:scale-[0.99] hover:border-blue-200/80 hover:shadow-lg focus-visible:ring-2 sm:min-h-0 sm:p-6"
+                className="flex min-h-[7.5rem] flex-col justify-between rounded-2xl border border-blue-100/90 bg-surface p-5 shadow-md shadow-blue-900/[0.06] outline-none ring-accent/25 transition-all duration-300 ease-out active:scale-[0.99] hover:-translate-y-0.5 hover:border-amber-300/90 hover:shadow-lg hover:shadow-amber-900/[0.08] focus-visible:ring-2 sm:min-h-0 sm:p-6"
               >
                 <span className="font-display text-lg font-bold text-slate-900 sm:text-xl">
                   {item.label}
@@ -38,7 +37,7 @@ export function HomeNavCards() {
                 <span className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
                   {blurbs[item.href]}
                 </span>
-                <span className="mt-4 text-sm font-bold text-accent">
+                <span className="mt-4 text-sm font-bold text-amber-700">
                   Open →
                 </span>
               </Link>

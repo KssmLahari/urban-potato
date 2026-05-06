@@ -1,5 +1,11 @@
 import Image from "next/image";
 import { FLEET_STORY } from "@/lib/company";
+import {
+  CONTENT_CARD_CLASS,
+  MEDIA_CARD_CLASS,
+  PAGE_SECTION_CLASS,
+  PAGE_TITLE_RULE_CLASS,
+} from "@/lib/pageStyles";
 
 const equipment = [
   {
@@ -11,6 +17,16 @@ const equipment = [
     title: "53-foot dry van trailers",
     detail:
       "Standard fifty-three-foot vans for dry freight—room for palletized product, retail replenishment, and industrial shipments with secure, weather-tight protection.",
+  },
+  {
+    title: "Reefer trailers",
+    detail:
+      "Temperature-controlled equipment for loads that require consistent climate handling and monitored transport.",
+  },
+  {
+    title: "Flatbed trailers",
+    detail:
+      "Open-deck capability for freight that cannot be loaded into enclosed vans, secured with proper tie-down procedures.",
   },
   {
     title: "Continental coverage",
@@ -29,8 +45,8 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
       {...(!standalone ? { id: "fleet" } : {})}
       className={
         standalone
-          ? "bg-background px-4 py-16 sm:px-6 sm:py-28"
-          : "scroll-mt-20 bg-background px-4 py-16 sm:px-6 sm:py-28"
+          ? PAGE_SECTION_CLASS
+          : `scroll-mt-20 ${PAGE_SECTION_CLASS}`
       }
     >
       <div className="mx-auto max-w-6xl">
@@ -41,14 +57,17 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
             ) : (
               <h2 className={headingClass}>{title}</h2>
             )}
-            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+            <div className={PAGE_TITLE_RULE_CLASS} aria-hidden />
+            <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
               {FLEET_STORY.lead} {FLEET_STORY.body}
             </p>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:gap-6">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-slate-200 shadow-sm sm:aspect-[16/11]">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <div
+            className={`relative aspect-[4/3] bg-slate-200 sm:aspect-[16/11] ${MEDIA_CARD_CLASS}`}
+          >
             <Image
               src="/images/nulien/cab-profile.png"
               alt="Nulien Transportation blue Freightliner Cascadia cab, side profile"
@@ -57,10 +76,34 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-slate-200 shadow-sm sm:aspect-[16/11]">
+          <div
+            className={`relative aspect-[4/3] bg-slate-200 sm:aspect-[16/11] ${MEDIA_CARD_CLASS}`}
+          >
             <Image
               src="/images/nulien/cab-palm-bay.png"
               alt="Nulien Transportation tractor at Palm Bay, Florida, with palm trees in the background"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <div
+            className={`relative aspect-[4/3] bg-slate-200 sm:aspect-[16/11] ${MEDIA_CARD_CLASS}`}
+          >
+            <Image
+              src="/images/nulien/reefer-stock.jpg"
+              alt="Reefer trailer reference image"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+          <div
+            className={`relative aspect-[4/3] bg-slate-200 sm:aspect-[16/11] ${MEDIA_CARD_CLASS}`}
+          >
+            <Image
+              src="/images/nulien/flatbed-stock.jpg"
+              alt="Flatbed trailer reference image"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -72,7 +115,7 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
           {equipment.map((unit) => (
             <article
               key={unit.title}
-              className="rounded-2xl border border-border bg-surface p-5 shadow-md shadow-slate-900/[0.04] transition hover:border-blue-200 sm:p-6 lg:p-8"
+              className={CONTENT_CARD_CLASS}
             >
               <h3 className="font-display text-xl font-bold text-slate-900">
                 {unit.title}
@@ -81,6 +124,10 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
             </article>
           ))}
         </div>
+        <p className="mt-6 text-xs text-muted">
+          Reefer and flatbed reference photos are from Wikimedia Commons (CC
+          BY 2.0) for temporary portfolio visualization.
+        </p>
       </div>
     </section>
   );

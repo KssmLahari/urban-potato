@@ -40,7 +40,7 @@ export function MobileNav() {
       <button
         ref={menuButtonRef}
         type="button"
-        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-slate-800 shadow-sm outline-none ring-accent/40 transition active:scale-[0.97] hover:bg-background focus-visible:ring-2"
+        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-blue-200/90 bg-white text-slate-800 shadow-sm shadow-blue-900/[0.06] outline-none ring-accent/40 transition-all duration-200 active:scale-[0.97] hover:-translate-y-0.5 hover:bg-blue-50/70 focus-visible:ring-2"
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Close menu" : "Open menu"}
@@ -74,7 +74,7 @@ export function MobileNav() {
           />
           <div
             id={panelId}
-            className="fixed inset-x-0 z-50 max-h-[min(85dvh,calc(100dvh-var(--header-h)))] overflow-y-auto border-b border-border bg-background/98 px-4 py-4 shadow-xl shadow-slate-900/10 backdrop-blur-md supports-[backdrop-filter]:bg-background/92"
+            className="fixed inset-x-0 z-50 max-h-[min(85dvh,calc(100dvh-var(--header-h)))] overflow-y-auto border-b border-blue-100/90 bg-gradient-to-b from-white/98 via-background to-blue-50/50 px-4 py-4 shadow-xl shadow-blue-900/15 backdrop-blur-md supports-[backdrop-filter]:bg-white/92"
             style={{ top: "var(--header-h)" }}
             role="dialog"
             aria-modal="true"
@@ -89,7 +89,7 @@ export function MobileNav() {
                   key={item.href}
                   ref={i === 0 ? firstLinkRef : undefined}
                   href={item.href}
-                  className="rounded-xl px-4 py-4 text-lg font-semibold text-slate-900 outline-none ring-accent/40 transition active:bg-slate-100 hover:bg-surface focus-visible:ring-2"
+                  className="rounded-xl px-4 py-4 text-lg font-semibold text-slate-900 outline-none ring-accent/40 transition-colors duration-200 active:bg-blue-100/60 hover:bg-blue-50/80 focus-visible:ring-2"
                   onClick={close}
                 >
                   {item.label}
@@ -97,7 +97,7 @@ export function MobileNav() {
               ))}
               <Link
                 href="/contact"
-                className="mt-3 flex min-h-[52px] items-center justify-center rounded-xl bg-accent px-4 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-blue-900/25 outline-none ring-offset-2 ring-accent/50 transition active:bg-blue-800 hover:bg-accent-hover focus-visible:ring-2"
+                className="mt-3 flex min-h-[52px] items-center justify-center rounded-xl bg-cta px-4 py-3.5 text-center text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 outline-none ring-offset-2 ring-yellow-400/40 transition-all duration-200 active:bg-yellow-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2"
                 onClick={close}
               >
                 Request a quote

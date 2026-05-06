@@ -1,5 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { COMPANY, FLEET_STORY, getGoogleMapsUrl } from "@/lib/company";
+import {
+  MEDIA_CARD_CLASS,
+  PAGE_SECTION_CLASS,
+  PAGE_TITLE_RULE_CLASS,
+} from "@/lib/pageStyles";
 
 const pillars = [
   {
@@ -26,8 +32,8 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
       {...(!standalone ? { id: "about" } : {})}
       className={
         standalone
-          ? "border-b border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
-          : "scroll-mt-20 border-t border-border bg-surface px-4 py-16 sm:px-6 sm:py-28"
+          ? PAGE_SECTION_CLASS
+          : `scroll-mt-20 border-t border-blue-100/80 ${PAGE_SECTION_CLASS}`
       }
     >
       <div className="mx-auto max-w-6xl">
@@ -38,7 +44,8 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
             ) : (
               <h2 className={headingClass}>{title}</h2>
             )}
-            <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+            <div className={PAGE_TITLE_RULE_CLASS} aria-hidden />
+            <p className="mt-8 text-base leading-relaxed text-muted sm:text-lg">
               {FLEET_STORY.lead} Founder Natanael Ulien built{" "}
               {COMPANY.displayName} on a simple idea: keep serving the country—
               this time by moving the goods people rely on.
@@ -67,11 +74,23 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
               .
             </p>
           </div>
-          <ul className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6">
+            <div className={`${MEDIA_CARD_CLASS} bg-slate-100`}>
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src="/images/nulien/cab-palm-bay.png"
+                  alt="Nulien Transportation truck near Palm Bay"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+            </div>
+            <ul className="flex flex-col gap-6">
             {pillars.map((p) => (
               <li
                 key={p.title}
-                className="rounded-2xl border-l-4 border-accent bg-background px-6 py-5"
+                className="rounded-2xl border border-blue-100/80 border-l-4 border-l-blue-600 bg-surface/95 px-6 py-5 shadow-md shadow-blue-900/[0.05] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-amber-200/90 hover:shadow-lg"
               >
                 <h3 className="font-display text-lg font-bold text-slate-900">
                   {p.title}
@@ -79,7 +98,8 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
                 <p className="mt-2 text-muted">{p.body}</p>
               </li>
             ))}
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
