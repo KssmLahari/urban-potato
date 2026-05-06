@@ -62,6 +62,36 @@ export function SiteFooter() {
             >
               Home
             </Link>
+            <Link
+              href="/privacy-policy"
+              className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-and-conditions"
+              className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              href="/carrier-onboarding"
+              className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              Carrier Onboarding
+            </Link>
+            <Link
+              href="/faq"
+              className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              FAQ
+            </Link>
+            <Link
+              href="/feedback"
+              className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              Feedback
+            </Link>
           </div>
         </div>
       </div>

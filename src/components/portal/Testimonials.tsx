@@ -16,6 +16,15 @@ const signals = [
   },
 ];
 
+const reviewSnippets = [
+  "★★★★★ Clear communication from dispatch",
+  "★★★★☆ On-time pickup and smooth delivery",
+  "★★★★★ Professional drivers and updates",
+  "★★★★☆ Fast response when schedule changed",
+  "★★★★★ Easy coordination across lanes",
+  "★★★★☆ Good updates from pickup to drop-off",
+];
+
 export function Testimonials() {
   return (
     <section
@@ -66,6 +75,18 @@ export function Testimonials() {
             </li>
           ))}
         </ul>
+        <div className="mt-10 overflow-hidden rounded-xl border border-slate-600/60 bg-slate-900/40 py-3">
+          <div className="review-marquee-track flex min-w-max gap-3 px-3">
+            {[...reviewSnippets, ...reviewSnippets].map((text, i) => (
+              <span
+                key={`${text}-${i}`}
+                className="inline-flex items-center rounded-full border border-amber-300/30 bg-slate-800/70 px-3 py-1.5 text-sm font-medium text-amber-100"
+              >
+                {text}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
