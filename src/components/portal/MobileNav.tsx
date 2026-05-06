@@ -97,7 +97,7 @@ export function MobileNav() {
               ))}
               <Link
                 href="/contact"
-                className="mt-3 flex min-h-[52px] items-center justify-center rounded-xl bg-cta px-4 py-3.5 text-center text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 outline-none ring-offset-2 ring-yellow-400/40 transition-all duration-200 active:bg-yellow-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2"
+                className="mt-3 flex min-h-[52px] items-center justify-center rounded-xl bg-cta px-4 py-3.5 text-center text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 outline-none ring-offset-2 ring-amber-300/40 transition-all duration-200 active:bg-amber-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2"
                 onClick={close}
               >
                 Request a quote

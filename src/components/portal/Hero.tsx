@@ -6,10 +6,10 @@ import { useEffect, useRef } from "react";
 import { COMPANY } from "@/lib/company";
 
 const stats = [
-  { k: "Continental U.S.", v: "Nationwide freight lanes" },
-  { k: "Veteran-owned", v: "Palm Bay, Florida" },
-  { k: "53′", v: "Dry van trailers" },
-  { k: "Semi-trucks", v: "Freightliner Cascadia" },
+  { k: "Coverage", v: "Continental U.S. lanes" },
+  { k: "Response", v: "Fast quote turnaround" },
+  { k: "Equipment", v: "53′ dry van, reefer, flatbed" },
+  { k: "Ownership", v: "Veteran-owned in Florida" },
 ];
 
 export function Hero() {
@@ -73,23 +73,23 @@ export function Hero() {
           aria-hidden
         />
       </div>
-      <div className="pointer-events-none absolute -left-16 top-1/3 h-48 w-48 rounded-full bg-yellow-400/20 blur-3xl sm:h-64 sm:w-64" />
+      <div className="pointer-events-none absolute -left-16 top-1/3 h-48 w-48 rounded-full bg-amber-300/20 blur-3xl sm:h-64 sm:w-64" />
       <div className="pointer-events-none absolute -right-24 top-1/4 h-64 w-64 rounded-full bg-blue-500/30 blur-3xl sm:top-1/3 sm:h-72 sm:w-72 md:bg-blue-400/20" />
       <div className="hero-content-motion relative mx-auto max-w-6xl">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-200 sm:mb-4 sm:text-sm sm:tracking-widest">
+        <p className="mb-3 inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100 backdrop-blur-sm sm:mb-4 sm:text-sm sm:tracking-widest">
           Veteran-owned · Licensed & insured
         </p>
         <p className="font-display text-lg font-semibold leading-snug text-blue-100 sm:text-xl md:text-2xl">
           {COMPANY.tagline}
         </p>
         <div
-          className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-amber-400 to-blue-500 shadow-sm shadow-amber-500/25 sm:mt-5"
+          className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-amber-300 to-blue-500 shadow-sm shadow-amber-500/20 sm:mt-5"
           aria-hidden
         />
         <h1 className="mt-5 max-w-[20ch] font-display text-[1.85rem] font-extrabold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.45)] min-[400px]:max-w-none min-[400px]:text-4xl sm:text-5xl lg:text-6xl">
           Your cargo,{" "}
-          <span className="text-yellow-300 drop-shadow-md sm:text-yellow-200">
-            safely from A to B.
+          <span className="text-amber-200 drop-shadow-md sm:text-amber-100">
+            delivered right and on time.
           </span>
         </h1>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-100 sm:mt-6 sm:text-lg md:text-xl">
@@ -98,20 +98,23 @@ export function Hero() {
         <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:flex-wrap">
           <Link
             href="/contact"
-            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/30 outline-none ring-offset-2 ring-offset-slate-950 transition-all duration-200 active:scale-[0.99] active:bg-yellow-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2 focus-visible:ring-yellow-300 sm:w-auto sm:min-h-[48px]"
+            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/30 outline-none ring-offset-2 ring-offset-slate-950 transition-all duration-200 active:scale-[0.99] active:bg-amber-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2 focus-visible:ring-amber-300 sm:w-auto sm:min-h-[48px]"
           >
             Get a freight quote
           </Link>
           <Link
             href="/fleet"
-            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border-2 border-yellow-300/60 bg-white/10 px-8 py-3.5 text-base font-semibold text-white shadow-md outline-none ring-yellow-200/40 ring-offset-2 ring-offset-slate-950 backdrop-blur-md transition-all duration-200 active:scale-[0.99] hover:-translate-y-0.5 hover:border-yellow-200/90 hover:bg-yellow-400/15 focus-visible:ring-2 sm:w-auto sm:min-h-[48px]"
+            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border-2 border-amber-200/65 bg-white/10 px-8 py-3.5 text-base font-semibold text-white shadow-md outline-none ring-amber-200/40 ring-offset-2 ring-offset-slate-950 backdrop-blur-md transition-all duration-200 active:scale-[0.99] hover:-translate-y-0.5 hover:border-amber-100/90 hover:bg-amber-300/15 focus-visible:ring-2 sm:w-auto sm:min-h-[48px]"
           >
             Meet our fleet
           </Link>
         </div>
-        <dl className="mt-14 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-white/15 pt-10 sm:mt-16 sm:grid-cols-4 sm:gap-8">
+        <dl className="mt-14 grid grid-cols-2 gap-3 border-t border-white/15 pt-10 sm:mt-16 sm:grid-cols-4 sm:gap-4">
           {stats.map((row) => (
-            <div key={row.k}>
+            <div
+              key={row.k}
+              className="rounded-xl border border-white/10 bg-white/[0.06] p-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.09]"
+            >
               <dt className="font-display text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl md:text-2xl">
                 {row.k}
               </dt>

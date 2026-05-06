@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import { COMPANY } from "@/lib/company";
 
 const signals = [
@@ -30,32 +31,38 @@ export function Testimonials() {
         aria-hidden
       />
       <div className="relative mx-auto max-w-6xl">
-        <h2
-          id="trust-heading"
-          className="font-display text-[1.4rem] font-bold leading-tight tracking-tight sm:text-3xl"
-        >
-          Why teams reach out to {COMPANY.displayName}
-        </h2>
-        <div
-          className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-amber-400 to-blue-500 shadow-sm shadow-amber-500/20"
-          aria-hidden
-        />
-        <p className="mt-6 max-w-2xl text-base text-slate-400 sm:text-lg">
-          We focus on safe, on-time delivery and honest answers. Ask us about
-          capacity, equipment, and how we work with owner-operators.
-        </p>
-        <ul className="mt-8 grid gap-4 sm:mt-10 md:grid-cols-3 md:gap-6">
-          {signals.map((item) => (
-            <li
-              key={item.title}
-              className="rounded-2xl border border-slate-600/70 border-t-amber-400/35 bg-slate-800/45 p-5 shadow-lg shadow-black/25 backdrop-blur-sm sm:p-7"
+        <ScrollReveal>
+          <div>
+            <h2
+              id="trust-heading"
+              className="font-display text-[1.4rem] font-bold leading-tight tracking-tight sm:text-3xl"
             >
-              <h3 className="font-display text-lg font-bold text-yellow-200 sm:text-xl">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-                {item.body}
-              </p>
+              Why teams reach out to {COMPANY.displayName}
+            </h2>
+            <div
+              className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-amber-300 to-blue-500 shadow-sm shadow-amber-500/20"
+              aria-hidden
+            />
+            <p className="mt-6 max-w-2xl text-base text-slate-400 sm:text-lg">
+              We focus on safe, on-time delivery and honest answers. Ask us about
+              capacity, equipment, and how we work with owner-operators.
+            </p>
+          </div>
+        </ScrollReveal>
+        <ul className="mt-8 grid list-none gap-4 sm:mt-10 md:grid-cols-3 md:gap-6">
+          {signals.map((item, i) => (
+            <li key={item.title}>
+              <ScrollReveal
+                className="rounded-2xl border border-slate-600/70 border-t-amber-400/35 bg-slate-800/45 p-5 shadow-lg shadow-black/25 backdrop-blur-sm transition-all duration-300 ease-out hover:-translate-y-0.5 sm:p-7"
+                delayMs={140 + i * 80}
+              >
+                <h3 className="font-display text-lg font-bold text-amber-100 sm:text-xl">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
+                  {item.body}
+                </p>
+              </ScrollReveal>
             </li>
           ))}
         </ul>

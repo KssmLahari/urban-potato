@@ -7,7 +7,7 @@ import { LogoMark } from "./LogoMark";
 export function SiteFooter() {
   return (
     <footer className="border-t border-blue-100/80 bg-gradient-to-b from-background to-blue-50/30 px-4 py-10 pb-[max(2.5rem,env(safe-area-inset-bottom,0px))] sm:px-6 sm:py-12">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl rounded-2xl border border-blue-100/80 bg-white/55 p-6 shadow-sm shadow-blue-900/[0.05] backdrop-blur-sm sm:p-8">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex flex-col gap-5">
             <div className="flex items-center gap-3 text-slate-900">

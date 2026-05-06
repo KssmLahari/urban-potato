@@ -7,6 +7,10 @@ import { MobileNav } from "./MobileNav";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-blue-100/80 bg-white/90 shadow-sm shadow-blue-900/[0.04] backdrop-blur-md supports-[backdrop-filter]:bg-white/75">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-200/70 to-transparent"
+        aria-hidden
+      />
       <div className="mx-auto flex h-[var(--header-h)] max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
         <Link
           href="/"
@@ -32,7 +36,7 @@ export function SiteHeader() {
           <MobileNav />
           <Link
             href="/contact"
-            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center whitespace-nowrap rounded-full bg-cta px-4 py-2.5 text-sm font-bold text-cta-foreground shadow-md shadow-amber-900/20 outline-none ring-yellow-400/50 transition-all duration-200 active:bg-yellow-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2 focus-visible:ring-offset-2 md:min-h-0 md:min-w-0 md:px-4 md:py-2"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center whitespace-nowrap rounded-full bg-cta px-4 py-2.5 text-sm font-bold text-cta-foreground shadow-md shadow-amber-900/20 outline-none ring-amber-300/50 transition-all duration-200 active:bg-amber-500 hover:-translate-y-0.5 hover:bg-cta-hover focus-visible:ring-2 focus-visible:ring-offset-2 md:min-h-0 md:min-w-0 md:px-4 md:py-2"
           >
             <span className="md:hidden">Quote</span>
             <span className="hidden md:inline">Request a quote</span>
