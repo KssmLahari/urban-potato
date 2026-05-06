@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/portal/Hero";
-import { HomeNavCards } from "@/components/portal/HomeNavCards";
 import { OrganizationJsonLd } from "@/components/portal/OrganizationJsonLd";
 import { Testimonials } from "@/components/portal/Testimonials";
 
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <OrganizationJsonLd />
       <Hero />
-      <HomeNavCards />
       <Testimonials />
     </>
   );

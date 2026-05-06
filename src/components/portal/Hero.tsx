@@ -5,13 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { COMPANY } from "@/lib/company";
 
-const stats = [
-  { k: "Coverage", v: "Continental U.S. lanes" },
-  { k: "Response", v: "Fast quote turnaround" },
-  { k: "Equipment", v: "53′ dry van, reefer, flatbed" },
-  { k: "Ownership", v: "Veteran-owned in Florida" },
-];
-
 export function Hero() {
   const truckLayerRef = useRef<HTMLDivElement>(null);
 
@@ -113,21 +106,24 @@ export function Hero() {
             Meet our fleet
           </Link>
         </div>
-        <dl className="mt-14 grid grid-cols-2 gap-3 border-t border-white/15 pt-10 sm:mt-16 sm:grid-cols-4 sm:gap-4">
-          {stats.map((row) => (
-            <div
-              key={row.k}
-              className="rounded-xl border border-white/10 bg-white/[0.06] p-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/[0.09]"
-            >
-              <dt className="font-display text-lg font-bold leading-snug text-white drop-shadow-sm sm:text-xl md:text-2xl">
-                {row.k}
-              </dt>
-              <dd className="mt-1.5 text-sm leading-snug text-slate-300 sm:text-slate-400">
-                {row.v}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <div className="mt-10 border-t border-white/15 pt-6 sm:mt-12 sm:pt-8">
+          <div className="sm:max-w-sm">
+            <p className="font-display text-lg font-bold text-white sm:text-xl">
+              Coverage
+            </p>
+            <p className="mt-1.5 text-sm leading-snug text-slate-200 sm:text-base">
+              Continental U.S. lanes
+            </p>
+            <Image
+              src="/images/nulien/us-coverage-map.svg"
+              alt="Map of the United States showing continental coverage"
+              width={959}
+              height={593}
+              className="mt-3 h-auto w-full max-w-[230px] opacity-90 [filter:drop-shadow(0_8px_18px_rgba(30,64,175,0.35))] sm:max-w-[250px]"
+              priority
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
