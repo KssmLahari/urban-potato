@@ -13,7 +13,7 @@ const equipment = [
   {
     title: "Semi-truck tractors",
     detail:
-      "Modern sleeper tractors—maintained for the long haul with aerodynamic fairings and the visibility drivers need in real freight environments.",
+      "Modern Freightliner Cascadia sleepers—maintained for the long haul with aerodynamic fairings and the visibility drivers need in real freight environments.",
   },
   {
     title: "53-foot dry van trailers",
@@ -72,20 +72,20 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
           {(
             [
               {
-                src: "/images/nulien/graphic-warehouse-racks.svg",
-                alt: "Stylized illustration of warehouse pallet racking and distribution",
+                src: "/images/nulien/cab-profile.png",
+                alt: "Nulien Transportation blue Freightliner Cascadia cab, side profile",
               },
               {
-                src: "/images/nulien/graphic-pallet-stack.svg",
-                alt: "Stylized illustration of stacked pallets and boxed freight",
+                src: "/images/nulien/cab-palm-bay.png",
+                alt: "Nulien Transportation tractor at Palm Bay, Florida, with palm trees in the background",
               },
               {
-                src: "/images/nulien/graphic-reefer-trailer.svg",
-                alt: "Stylized illustration of a temperature-controlled trailer rear",
+                src: "/images/nulien/reefer-stock-v2.jpg",
+                alt: "Reefer trailer reference image",
               },
               {
-                src: "/images/nulien/graphic-flatbed-trailer.svg",
-                alt: "Stylized illustration of a flatbed trailer with secured deck freight",
+                src: "/images/nulien/flatbed-stock-v2.jpg",
+                alt: "Flatbed trailer reference image",
               },
             ] as const
           ).map((photo, i) => (
@@ -121,9 +121,8 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
         </div>
         <ScrollReveal delayMs={120}>
           <p className="mt-6 text-xs text-muted">
-            Equipment and warehouse visuals are original illustrations (no
-            third-party logos). The homepage hero uses a generic U.S. highway
-            scene (Wikimedia Commons, CC BY-SA 2.0).
+          Hero, reefer, and flatbed reference photos are from Wikimedia Commons
+          (CC BY 2.0 / CC BY-SA) for temporary portfolio visualization.
           </p>
         </ScrollReveal>
       </div>

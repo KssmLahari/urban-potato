@@ -85,10 +85,10 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
             >
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/graphic-pallet-stack.svg"
-                  alt="Stylized illustration of palletized freight and supply chain logistics"
+                  src="/images/nulien/cab-palm-bay.png"
+                  alt="Nulien Transportation truck near Palm Bay"
                   fill
-                  className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
+                  className={MEDIA_IMAGE_HOVER_CLASS}
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
