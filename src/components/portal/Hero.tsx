@@ -47,12 +47,12 @@ export function Hero() {
     >
       <div ref={truckLayerRef} className="hero-truck-parallax absolute inset-0">
         <Image
-          src="/images/nulien/hero-truck-stock.jpg"
-          alt="Modern semi-truck on highway"
+          src="/images/nulien/hero-semi-reefer.png"
+          alt="Red semi-truck with white refrigerated trailer on asphalt under clear sky"
           fill
           priority
           quality={100}
-          className="hero-truck-motion object-cover object-[62%_52%] sm:object-[72%_52%] md:object-center"
+          className="hero-truck-motion object-cover object-[55%_58%] sm:object-[65%_55%] md:object-[58%_52%]"
           sizes="100vw"
         />
         {/* Stronger scrim on small screens so type stays readable over the truck */}

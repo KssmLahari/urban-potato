@@ -65,10 +65,10 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
             <article>
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/reefer-stock-v2.jpg"
-                  alt="Reefer semi-trailer on highway"
+                  src="/images/nulien/reefer-capabilities.png"
+                  alt="Temperature-controlled reefer semi-trailer on the highway"
                   fill
-                  className={MEDIA_IMAGE_HOVER_CLASS}
+                  className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -84,10 +84,10 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
             <article>
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/flatbed-stock-v2.jpg"
-                  alt="Flatbed semi-trailer carrying cargo"
+                  src="/images/nulien/flatbed-hauling-support.png"
+                  alt="Flatbed semi-trailer with secured open-deck freight"
                   fill
-                  className={MEDIA_IMAGE_HOVER_CLASS}
+                  className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
