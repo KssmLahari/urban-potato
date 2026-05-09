@@ -47,8 +47,8 @@ export function Hero() {
     >
       <div ref={truckLayerRef} className="hero-truck-parallax absolute inset-0">
         <Image
-          src="/images/nulien/hero-truck-stock.jpg"
-          alt="Modern semi-truck on highway"
+          src="/images/nulien/hero-highway.jpg"
+          alt="Interstate highway with distance signage, representing continental freight lanes"
           fill
           priority
           quality={100}

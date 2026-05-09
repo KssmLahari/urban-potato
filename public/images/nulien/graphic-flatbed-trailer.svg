@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none" role="img" aria-labelledby="t d">
+  <title id="t">Illustration of a flatbed trailer with secured lumber</title>
+  <desc id="d">Stylized side view of an open flatbed deck and bundled freight. No strap manufacturer or fleet branding.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="deck" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4a574"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <filter id="sh" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="800" height="520" fill="url(#sky)"/>
+  <ellipse cx="400" cy="420" rx="320" ry="28" fill="#1e293b" opacity="0.08"/>
+  <g filter="url(#sh)">
+    <path fill="#1e3a8a" d="M120 300h520v32H120v-32z"/>
+    <path fill="url(#deck)" d="M96 332h548v36H96v-36z"/>
+    <path fill="#475569" d="M96 368h548v14H96v-14z"/>
+    <g transform="translate(140 220)">
+      <rect x="0" y="0" width="420" height="96" rx="10" fill="url(#wood)"/>
+      <rect x="14" y="12" width="392" height="72" rx="8" fill="#ca8a4f" opacity="0.45"/>
+      <path stroke="#fbbf24" stroke-width="10" stroke-linecap="round" opacity="0.9" d="M24 48h372"/>
+      <path stroke="#f59e0b" stroke-width="6" stroke-linecap="round" opacity="0.85" d="M40 72h340"/>
+    </g>
+    <circle cx="180" cy="386" r="26" fill="#0f172a"/>
+    <circle cx="620" cy="386" r="26" fill="#0f172a"/>
+    <path stroke="#cbd5e1" stroke-width="6" stroke-linecap="round" d="M206 386h388"/>
+  </g>
+</svg>
