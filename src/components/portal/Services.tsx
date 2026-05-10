@@ -66,7 +66,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
               <div className="relative aspect-[16/10]">
                 <Image
                   src="/images/nulien/reefer-capabilities.png"
-                  alt="Temperature-controlled reefer semi-trailer on the highway"
+                  alt="Nulien Transportation reefer semi-trailer on the highway"
                   fill
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -85,7 +85,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
               <div className="relative aspect-[16/10]">
                 <Image
                   src="/images/nulien/flatbed-hauling-support.png"
-                  alt="Flatbed semi-trailer with secured open-deck freight"
+                  alt="Nulien Transportation flatbed semi-trailer with secured freight"
                   fill
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"

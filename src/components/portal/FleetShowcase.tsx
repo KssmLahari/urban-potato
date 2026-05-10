@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FLEET_STORY } from "@/lib/company";
+import { COMPANY, FLEET_STORY } from "@/lib/company";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   CONTENT_CARD_CLASS,
@@ -81,11 +81,11 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
               },
               {
                 src: "/images/nulien/reefer-capabilities.png",
-                alt: "Temperature-controlled reefer trailer on the highway",
+                alt: "Nulien Transportation reefer trailer on the highway",
               },
               {
                 src: "/images/nulien/flatbed-hauling-support.png",
-                alt: "Flatbed trailer with secured heavy freight",
+                alt: "Nulien Transportation flatbed with secured heavy freight",
               },
             ] as const
           ).map((photo, i) => (
@@ -122,7 +122,7 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
         <ScrollReveal delayMs={120}>
           <p className="mt-6 text-xs text-muted">
             Homepage hero, reefer, and flatbed images are custom-generated
-            reference artwork for this site. Other fleet photos may be
+            artwork featuring {COMPANY.displayName}. Other fleet photos may be
             illustrative stock or owner reference.
           </p>
         </ScrollReveal>
