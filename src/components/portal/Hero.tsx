@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { COMPANY } from "@/lib/company";
-import { SITE_IMAGES } from "@/lib/siteImages";
+import { SITE_IMAGES, bypassImageOptimizerInDev } from "@/lib/siteImages";
 
 export function Hero() {
   const truckLayerRef = useRef<HTMLDivElement>(null);
@@ -53,6 +53,7 @@ export function Hero() {
           fill
           priority
           quality={100}
+          unoptimized={bypassImageOptimizerInDev}
           className="hero-truck-motion object-cover object-[55%_58%] sm:object-[65%_55%] md:object-[58%_52%]"
           sizes="100vw"
         />
@@ -120,6 +121,7 @@ export function Hero() {
               alt="Map of the United States showing continental coverage"
               width={959}
               height={593}
+              unoptimized={bypassImageOptimizerInDev}
               className="mt-3 h-auto w-full max-w-[230px] opacity-90 [filter:drop-shadow(0_8px_18px_rgba(30,64,175,0.35))] sm:max-w-[250px]"
               priority
             />

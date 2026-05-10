@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { COMPANY, FLEET_STORY, getGoogleMapsUrl } from "@/lib/company";
-import { SITE_IMAGES } from "@/lib/siteImages";
+import { SITE_IMAGES, bypassImageOptimizerInDev } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   MEDIA_CARD_CLASS,
@@ -89,6 +89,7 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
                   src={SITE_IMAGES.cabPalmBay}
                   alt="Nulien Transportation blue tractor with yellow fleet lettering, Palm Bay area"
                   fill
+                  unoptimized={bypassImageOptimizerInDev}
                   className={MEDIA_IMAGE_HOVER_CLASS}
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />

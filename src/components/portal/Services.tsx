@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { COMPANY } from "@/lib/company";
-import { SITE_IMAGES } from "@/lib/siteImages";
+import { SITE_IMAGES, bypassImageOptimizerInDev } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   CONTENT_CARD_CLASS,
@@ -69,6 +69,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
                   src={SITE_IMAGES.reeferCapabilities}
                   alt="Nulien Transportation reefer semi-trailer on the highway"
                   fill
+                  unoptimized={bypassImageOptimizerInDev}
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -88,6 +89,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
                   src={SITE_IMAGES.flatbedHaulingSupport}
                   alt="Nulien Transportation flatbed semi-trailer with secured freight"
                   fill
+                  unoptimized={bypassImageOptimizerInDev}
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />

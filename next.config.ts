@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   images: {
     /** Allows `quality={100}` on hero `<Image />` without optimizer warnings/fallbacks. */
     qualities: [75, 100],
+    /** Avoid long-lived optimizer cache while iterating on files in `public/` during dev. */
+    minimumCacheTTL:
+      process.env.NODE_ENV === "development"
+        ? 0
+        : 60 * 60 * 24,
   },
   async headers() {
     const headers: { key: string; value: string }[] = [

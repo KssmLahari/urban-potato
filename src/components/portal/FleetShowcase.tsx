@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { COMPANY, FLEET_STORY } from "@/lib/company";
-import { SITE_IMAGES } from "@/lib/siteImages";
+import { SITE_IMAGES, bypassImageOptimizerInDev } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   CONTENT_CARD_CLASS,
@@ -99,6 +99,7 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
                 src={photo.src}
                 alt={photo.alt}
                 fill
+                unoptimized={bypassImageOptimizerInDev}
                 className={MEDIA_IMAGE_HOVER_CLASS}
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
