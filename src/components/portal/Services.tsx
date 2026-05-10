@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { COMPANY } from "@/lib/company";
+import { SITE_IMAGES } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   CONTENT_CARD_CLASS,
@@ -65,7 +66,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
             <article>
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/reefer-capabilities.png"
+                  src={SITE_IMAGES.reeferCapabilities}
                   alt="Nulien Transportation reefer semi-trailer on the highway"
                   fill
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}
@@ -84,7 +85,7 @@ export function Services({ standalone = false }: { standalone?: boolean }) {
             <article>
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/flatbed-hauling-support.png"
+                  src={SITE_IMAGES.flatbedHaulingSupport}
                   alt="Nulien Transportation flatbed semi-trailer with secured freight"
                   fill
                   className={`${MEDIA_IMAGE_HOVER_CLASS} object-cover object-center`}

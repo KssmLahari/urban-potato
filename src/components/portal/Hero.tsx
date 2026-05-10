@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { COMPANY } from "@/lib/company";
+import { SITE_IMAGES } from "@/lib/siteImages";
 
 export function Hero() {
   const truckLayerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +48,7 @@ export function Hero() {
     >
       <div ref={truckLayerRef} className="hero-truck-parallax absolute inset-0">
         <Image
-          src="/images/nulien/hero-semi-reefer.png"
+          src={SITE_IMAGES.heroSemiReefer}
           alt="Nulien Transportation semi-truck with white refrigerated trailer"
           fill
           priority
@@ -115,7 +116,7 @@ export function Hero() {
               Continental U.S. lanes
             </p>
             <Image
-              src="/images/nulien/us-coverage-map.svg"
+              src={SITE_IMAGES.usCoverageMap}
               alt="Map of the United States showing continental coverage"
               width={959}
               height={593}

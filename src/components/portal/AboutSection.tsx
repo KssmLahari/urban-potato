@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { COMPANY, FLEET_STORY, getGoogleMapsUrl } from "@/lib/company";
+import { SITE_IMAGES } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   MEDIA_CARD_CLASS,
@@ -85,7 +86,7 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
             >
               <div className="relative aspect-[16/10]">
                 <Image
-                  src="/images/nulien/cab-palm-bay.png"
+                  src={SITE_IMAGES.cabPalmBay}
                   alt="Nulien Transportation blue tractor with yellow fleet lettering, Palm Bay area"
                   fill
                   className={MEDIA_IMAGE_HOVER_CLASS}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { COMPANY, FLEET_STORY } from "@/lib/company";
+import { SITE_IMAGES } from "@/lib/siteImages";
 import { ScrollReveal } from "@/components/portal/ScrollReveal";
 import {
   CONTENT_CARD_CLASS,
@@ -72,19 +73,19 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
           {(
             [
               {
-                src: "/images/nulien/cab-profile.png",
+                src: SITE_IMAGES.cabProfile,
                 alt: "Nulien Transportation blue tractor cab with yellow fleet lettering, side profile",
               },
               {
-                src: "/images/nulien/cab-palm-bay.png",
+                src: SITE_IMAGES.cabPalmBay,
                 alt: "Nulien Transportation blue tractor with yellow fleet lettering, Palm Bay area setting",
               },
               {
-                src: "/images/nulien/reefer-capabilities.png",
+                src: SITE_IMAGES.reeferCapabilities,
                 alt: "Nulien Transportation reefer trailer on the highway",
               },
               {
-                src: "/images/nulien/flatbed-hauling-support.png",
+                src: SITE_IMAGES.flatbedHaulingSupport,
                 alt: "Nulien Transportation flatbed with secured heavy freight",
               },
             ] as const
