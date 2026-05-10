@@ -86,7 +86,7 @@ export function AboutSection({ standalone = false }: { standalone?: boolean }) {
               <div className="relative aspect-[16/10]">
                 <Image
                   src="/images/nulien/cab-palm-bay.png"
-                  alt="Nulien Transportation truck near Palm Bay"
+                  alt="Nulien Transportation blue tractor with yellow fleet lettering, Palm Bay area"
                   fill
                   className={MEDIA_IMAGE_HOVER_CLASS}
                   sizes="(max-width: 1024px) 100vw, 40vw"

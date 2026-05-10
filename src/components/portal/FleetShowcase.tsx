@@ -73,11 +73,11 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
             [
               {
                 src: "/images/nulien/cab-profile.png",
-                alt: "Nulien Transportation blue Freightliner Cascadia cab, side profile",
+                alt: "Nulien Transportation blue tractor cab with yellow fleet lettering, side profile",
               },
               {
                 src: "/images/nulien/cab-palm-bay.png",
-                alt: "Nulien Transportation tractor at Palm Bay, Florida, with palm trees in the background",
+                alt: "Nulien Transportation blue tractor with yellow fleet lettering, Palm Bay area setting",
               },
               {
                 src: "/images/nulien/reefer-capabilities.png",
@@ -121,9 +121,8 @@ export function FleetShowcase({ standalone = false }: { standalone?: boolean }) 
         </div>
         <ScrollReveal delayMs={120}>
           <p className="mt-6 text-xs text-muted">
-            Homepage hero, reefer, and flatbed images are custom-generated
-            artwork featuring {COMPANY.displayName}. Other fleet photos may be
-            illustrative stock or owner reference.
+            Blue cab, homepage hero, reefer, and flatbed images are
+            custom-generated artwork featuring {COMPANY.displayName}.
           </p>
         </ScrollReveal>
       </div>
