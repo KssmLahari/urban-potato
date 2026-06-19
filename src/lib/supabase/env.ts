@@ -1,7 +1,9 @@
 /** Supports both legacy (anon / service_role) and newer Supabase dashboard key names. */
 
 export function getSupabaseUrl(): string | undefined {
-  return process.env.NEXT_PUBLIC_SUPABASE_URL;
+  return (
+    process.env.NEXT_PUBLIC_SUPABASE_URL ?? process.env.SUPABASE_URL
+  );
 }
 
 export function getSupabasePublicKey(): string | undefined {

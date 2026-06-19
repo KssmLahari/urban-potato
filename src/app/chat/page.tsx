@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   openGraph: { url: "/chat" },
 };
 
+/** Read Supabase env at request time (not baked in at build). */
+export const dynamic = "force-dynamic";
+
 export default function ChatPage() {
   const configured = isSupabaseConfigured();
 

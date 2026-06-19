@@ -90,10 +90,17 @@ export function ChatPanel({ configured }: { configured: boolean }) {
       <div className="rounded-2xl border border-amber-200/80 bg-amber-50/80 p-6 text-slate-800">
         <p className="font-semibold">Chat is not live yet</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-700">
-          Supabase environment variables are missing. Add them in{" "}
+          Supabase is not connected yet. On{" "}
+          <strong>Vercel → Settings → Environment Variables</strong>, add{" "}
+          <code className="rounded bg-white/80 px-1">NEXT_PUBLIC_SUPABASE_URL</code>,{" "}
+          <code className="rounded bg-white/80 px-1">
+            NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+          </code>
+          , and{" "}
+          <code className="rounded bg-white/80 px-1">SUPABASE_SECRET_KEY</code>
+          , then <strong>Redeploy</strong>. For local dev, use{" "}
           <code className="rounded bg-white/80 px-1">.env.local</code> (see{" "}
-          <code className="rounded bg-white/80 px-1">.env.example</code>) and
-          run the SQL in <code className="rounded bg-white/80 px-1">supabase/schema.sql</code>.
+          <code className="rounded bg-white/80 px-1">.env.example</code>).
         </p>
       </div>
     );
