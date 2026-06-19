@@ -32,6 +32,49 @@ export async function POST(request: Request) {
 
   const supabase = getSupabaseAdmin();
 
+  const { data: existing, error: lookupError } = await supabase
+    .from("conversations")
+    .select("*")
+    .eq("visitor_email", visitorEmail)
+    .eq("status", "open")
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle<Conversation>();
+
+  if (lookupError) {
+    return NextResponse.json({ error: lookupError.message }, { status: 500 });
+  }
+
+  if (existing) {
+    const { data: appended, error: msgError } = await supabase
+      .from("messages")
+      .insert({
+        conversation_id: existing.id,
+        sender_type: "visitor",
+        body: message,
+      })
+      .select("*")
+      .single<Message>();
+
+    if (msgError || !appended) {
+      return NextResponse.json(
+        { error: msgError?.message ?? "Could not send message." },
+        { status: 500 },
+      );
+    }
+
+    await supabase
+      .from("conversations")
+      .update({ visitor_name: visitorName })
+      .eq("id", existing.id);
+
+    return NextResponse.json({
+      conversation: { ...existing, visitor_name: visitorName },
+      message: appended,
+      resumed: true,
+    });
+  }
+
   const { data: conversation, error: convError } = await supabase
     .from("conversations")
     .insert({
@@ -69,5 +112,6 @@ export async function POST(request: Request) {
   return NextResponse.json({
     conversation,
     message: firstMessage,
+    resumed: false,
   });
 }

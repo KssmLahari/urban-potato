@@ -23,33 +23,36 @@ export function useConversationMessages({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchThread = useCallback(async () => {
-    if (!conversationId) return;
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch(`/api/chat/${conversationId}/messages`, {
-        cache: "no-store",
-      });
-      const data = (await res.json()) as {
-        conversation?: Conversation;
-        messages?: Message[];
-        error?: string;
-      };
-      if (!res.ok) {
-        if (res.status === 404) {
-          localStorage.removeItem(STORAGE_KEY);
+  const fetchThread = useCallback(
+    async (options?: { silent?: boolean }) => {
+      if (!conversationId) return;
+      if (!options?.silent) setLoading(true);
+      setError(null);
+      try {
+        const res = await fetch(`/api/chat/${conversationId}/messages`, {
+          cache: "no-store",
+        });
+        const data = (await res.json()) as {
+          conversation?: Conversation;
+          messages?: Message[];
+          error?: string;
+        };
+        if (!res.ok) {
+          if (res.status === 404) {
+            localStorage.removeItem(STORAGE_KEY);
+          }
+          throw new Error(data.error ?? "Could not load messages.");
         }
-        throw new Error(data.error ?? "Could not load messages.");
+        setConversation(data.conversation ?? null);
+        setMessages(data.messages ?? []);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Could not load messages.");
+      } finally {
+        if (!options?.silent) setLoading(false);
       }
-      setConversation(data.conversation ?? null);
-      setMessages(data.messages ?? []);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not load messages.");
-    } finally {
-      setLoading(false);
-    }
-  }, [conversationId]);
+    },
+    [conversationId],
+  );
 
   useEffect(() => {
     if (!conversationId) {
@@ -96,7 +99,7 @@ export function useConversationMessages({
   useEffect(() => {
     if (!conversationId) return;
     const id = window.setInterval(() => {
-      void fetchThread();
+      void fetchThread({ silent: true });
     }, pollMs);
     return () => window.clearInterval(id);
   }, [conversationId, fetchThread, pollMs]);
@@ -107,7 +110,7 @@ export function useConversationMessages({
       messages,
       loading,
       error,
-      refresh: fetchThread,
+      refresh: () => fetchThread(),
     }),
     [conversation, messages, loading, error, fetchThread],
   );

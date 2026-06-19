@@ -55,8 +55,9 @@ npm run build
    - `ADMIN_PASSWORD` — password for `/admin/login`
    - `ADMIN_SESSION_SECRET` — long random string for signed admin cookies
 5. Restart `npm run dev`.
+6. **Email replies:** Sign up at [resend.com](https://resend.com), create an API key → `RESEND_API_KEY`. Verify `nulientransportation.com` in Resend, then set `CHAT_EMAIL_FROM=Nulien Transportation <dispatch@nulientransportation.com>`. Until the domain is verified, use `onboarding@resend.dev` and add test recipient emails in Resend.
 
-**Customer:** `/chat` — start a thread; messages update in real time.  
+**Customer:** `/chat` — start a thread; dispatch replies appear in chat and are emailed.  
 **Owner:** `/admin/login` → inbox → open a thread → reply.
 
 ## Deployment Notes

@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
-import { getSupabaseAdmin, isSupabaseConfigured } from "@/lib/supabase/server";
+import type { Conversation, Message } from "@/lib/chat/types";
 import { parseUuid, sanitizeText } from "@/lib/chat/validation";
-import type { Message } from "@/lib/chat/types";
+import {
+  isChatEmailConfigured,
+  sendChatReplyEmail,
+} from "@/lib/email/sendChatReplyEmail";
+import { getSupabaseAdmin, isSupabaseConfigured } from "@/lib/supabase/server";
 
 type RouteContext = { params: Promise<{ conversationId: string }> };
 
@@ -41,9 +45,9 @@ export async function POST(request: Request, context: RouteContext) {
 
   const { data: conversation, error: convError } = await supabase
     .from("conversations")
-    .select("id")
+    .select("id, visitor_name, visitor_email")
     .eq("id", conversationId)
-    .maybeSingle();
+    .maybeSingle<Pick<Conversation, "id" | "visitor_name" | "visitor_email">>();
 
   if (convError) {
     return NextResponse.json({ error: convError.message }, { status: 500 });
@@ -74,5 +78,28 @@ export async function POST(request: Request, context: RouteContext) {
     .update({ status: "open" })
     .eq("id", conversationId);
 
-  return NextResponse.json({ message });
+  let emailSent = false;
+  let emailError: string | undefined;
+
+  if (isChatEmailConfigured()) {
+    const emailResult = await sendChatReplyEmail({
+      to: conversation.visitor_email,
+      visitorName: conversation.visitor_name,
+      replyBody: text,
+      conversationId,
+    });
+    emailSent = emailResult.ok;
+    if (!emailResult.ok) {
+      emailError = emailResult.error;
+      console.error("Chat reply email failed:", emailResult.error);
+    }
+  } else {
+    emailError = "Email is not configured (add RESEND_API_KEY in Vercel).";
+  }
+
+  return NextResponse.json({
+    message,
+    emailSent,
+    emailError: emailSent ? undefined : emailError,
+  });
 }

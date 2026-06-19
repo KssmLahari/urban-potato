@@ -19,10 +19,12 @@ export function AdminThread({ conversationId }: { conversationId: string }) {
     useConversationMessages({ conversationId, pollMs: 3000 });
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
+  const [sentNotice, setSentNotice] = useState<string | null>(null);
 
   async function sendReply(body: string) {
     setSending(true);
     setSendError(null);
+    setSentNotice(null);
     try {
       const res = await fetch(
         `/api/admin/conversations/${conversationId}/messages`,
@@ -36,11 +38,25 @@ export function AdminThread({ conversationId }: { conversationId: string }) {
         router.replace("/admin/login");
         return;
       }
-      const data = (await res.json()) as { error?: string };
+      const data = (await res.json()) as {
+        error?: string;
+        emailSent?: boolean;
+        emailError?: string;
+      };
       if (!res.ok) {
         throw new Error(data.error ?? "Could not send reply.");
       }
       await refresh();
+      if (data.emailSent) {
+        setSentNotice(
+          "Reply sent in chat and emailed to the customer.",
+        );
+      } else {
+        setSentNotice(
+          "Reply saved in chat. Email was not sent — check RESEND_API_KEY in Vercel.",
+        );
+      }
+      window.setTimeout(() => setSentNotice(null), 8000);
     } catch (err) {
       setSendError(err instanceof Error ? err.message : "Could not send reply.");
     } finally {
@@ -91,6 +107,11 @@ export function AdminThread({ conversationId }: { conversationId: string }) {
           {sendError ? (
             <p className="mt-2 text-sm font-medium text-red-600" role="alert">
               {sendError}
+            </p>
+          ) : null}
+          {sentNotice ? (
+            <p className="mt-2 text-sm font-medium text-emerald-700" role="status">
+              {sentNotice}
             </p>
           ) : null}
         </div>

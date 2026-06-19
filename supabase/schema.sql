@@ -57,4 +57,7 @@ create policy "realtime_read_messages"
 
 -- Inserts/updates go through Next.js API routes (service role key), not anon clients.
 
+alter table public.messages replica identity full;
+alter table public.conversations replica identity full;
+
 alter publication supabase_realtime add table public.messages;

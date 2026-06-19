@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { ChatPanel } from "@/components/chat/ChatPanel";
 import { isSupabaseConfigured } from "@/lib/supabase/server";
 import { STAFF_PORTAL } from "@/lib/nav";
@@ -31,7 +32,13 @@ export default function ChatPage() {
           here when we are available.
         </p>
         <div className="mt-10">
-          <ChatPanel configured={configured} />
+          <Suspense
+            fallback={
+              <p className="text-center text-sm text-muted">Loading chat…</p>
+            }
+          >
+            <ChatPanel configured={configured} />
+          </Suspense>
         </div>
         <p className="mt-8 text-center text-sm text-muted">
           Staff replying to customers?{" "}
