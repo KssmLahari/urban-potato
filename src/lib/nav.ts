@@ -8,3 +8,9 @@ export const PRIMARY_NAV = [
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+/** Staff-only — linked in footer and on /chat (not in main header nav). */
+export const STAFF_PORTAL = {
+  href: "/admin/login",
+  label: "Dispatch inbox",
+} as const;

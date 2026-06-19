@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ChatPanel } from "@/components/chat/ChatPanel";
 import { isSupabaseConfigured } from "@/lib/supabase/server";
+import { STAFF_PORTAL } from "@/lib/nav";
 import { PAGE_SECTION_CLASS, PAGE_TITLE_RULE_CLASS } from "@/lib/pageStyles";
 
 export const metadata: Metadata = {
@@ -31,6 +33,15 @@ export default function ChatPage() {
         <div className="mt-10">
           <ChatPanel configured={configured} />
         </div>
+        <p className="mt-8 text-center text-sm text-muted">
+          Staff replying to customers?{" "}
+          <Link
+            href={STAFF_PORTAL.href}
+            className="font-semibold text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent"
+          >
+            Open {STAFF_PORTAL.label}
+          </Link>
+        </p>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { AdminInboxList } from "@/components/admin/AdminInboxList";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
+import { PAGE_SECTION_CLASS } from "@/lib/pageStyles";
 
 export const metadata: Metadata = {
   title: "Dispatch Inbox",
@@ -14,7 +15,7 @@ export default async function AdminInboxPage() {
   }
 
   return (
-    <div className="min-h-[70dvh] bg-gradient-to-b from-background via-blue-50/40 to-amber-50/30">
+    <div className={`min-h-[70dvh] ${PAGE_SECTION_CLASS}`}>
       <AdminInboxList />
     </div>
   );

@@ -12,7 +12,13 @@ import {
   inputClass,
   MessageList,
 } from "@/components/chat/MessageList";
-import { PAGE_TITLE_RULE_CLASS } from "@/lib/pageStyles";
+import {
+  CHAT_CTA_BUTTON_CLASS,
+  CHAT_FORM_CLASS,
+  CHAT_SHELL_ACCENT,
+  CHAT_SHELL_CLASS,
+  PAGE_TITLE_RULE_CLASS,
+} from "@/lib/chatStyles";
 
 export function ChatPanel({ configured }: { configured: boolean }) {
   const [conversationId, setConversationId] = useState<string | null>(null);
@@ -87,8 +93,12 @@ export function ChatPanel({ configured }: { configured: boolean }) {
 
   if (!configured) {
     return (
-      <div className="rounded-2xl border border-amber-200/80 bg-amber-50/80 p-6 text-slate-800">
-        <p className="font-semibold">Chat is not live yet</p>
+      <div className={`${CHAT_FORM_CLASS} border-amber-200/80 bg-gradient-to-br from-amber-50/90 to-blue-50/40`}>
+        <div className={CHAT_SHELL_ACCENT} aria-hidden />
+        <div className="p-1">
+          <p className="font-display text-lg font-bold text-slate-900">
+            Chat is not live yet
+          </p>
         <p className="mt-2 text-sm leading-relaxed text-slate-700">
           Supabase is not connected yet. On{" "}
           <strong>Vercel → Settings → Environment Variables</strong>, add{" "}
@@ -102,6 +112,7 @@ export function ChatPanel({ configured }: { configured: boolean }) {
           <code className="rounded bg-white/80 px-1">.env.local</code> (see{" "}
           <code className="rounded bg-white/80 px-1">.env.example</code>).
         </p>
+        </div>
       </div>
     );
   }
@@ -115,7 +126,7 @@ export function ChatPanel({ configured }: { configured: boolean }) {
   if (!conversationId) {
     return (
       <form
-        className="rounded-2xl border border-blue-100/85 bg-surface/95 p-5 ring-1 ring-white/70 shadow-md shadow-blue-900/[0.05] sm:p-6"
+        className={CHAT_FORM_CLASS}
         onSubmit={(e) => {
           e.preventDefault();
           void startConversation(new FormData(e.currentTarget));
@@ -171,7 +182,7 @@ export function ChatPanel({ configured }: { configured: boolean }) {
         <button
           type="submit"
           disabled={starting}
-          className="mt-6 min-h-[52px] rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover disabled:opacity-60"
+          className={`mt-6 ${CHAT_CTA_BUTTON_CLASS}`}
         >
           {starting ? "Starting chat…" : "Start chat"}
         </button>
@@ -180,7 +191,8 @@ export function ChatPanel({ configured }: { configured: boolean }) {
   }
 
   return (
-    <div className="flex min-h-[min(70dvh,640px)] flex-col rounded-2xl border border-blue-100/85 bg-surface/95 ring-1 ring-white/70 shadow-md shadow-blue-900/[0.05]">
+    <div className={`min-h-[min(70dvh,640px)] ${CHAT_SHELL_CLASS}`}>
+      <div className={CHAT_SHELL_ACCENT} aria-hidden />
       <div className="border-b border-blue-100/80 px-4 py-4 sm:px-6">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -228,6 +240,7 @@ export function ChatPanel({ configured }: { configured: boolean }) {
           placeholder="Type your message…"
           disabled={sending || conversation?.status === "closed"}
           onSend={sendMessage}
+          embedded
         />
         {conversation?.status === "closed" ? (
           <p className="mt-2 text-xs text-muted">

@@ -3,6 +3,11 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { inputClass } from "@/components/chat/MessageList";
+import {
+  CHAT_CTA_BUTTON_CLASS,
+  CHAT_FORM_CLASS,
+  CHAT_SHELL_ACCENT,
+} from "@/lib/chatStyles";
 
 type AdminLoginFormProps = {
   allowedEmails: readonly string[];
@@ -17,7 +22,7 @@ export function AdminLoginForm({ allowedEmails }: AdminLoginFormProps) {
 
   return (
     <form
-      className="mx-auto max-w-md rounded-2xl border border-blue-100/85 bg-white p-6 shadow-md"
+      className={`mx-auto max-w-md overflow-hidden ${CHAT_FORM_CLASS}`}
       onSubmit={async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -41,6 +46,8 @@ export function AdminLoginForm({ allowedEmails }: AdminLoginFormProps) {
         }
       }}
     >
+      <div className={CHAT_SHELL_ACCENT} aria-hidden />
+      <div className="p-1">
       <h1 className="font-display text-2xl font-bold text-slate-900">
         Admin sign in
       </h1>
@@ -89,10 +96,11 @@ export function AdminLoginForm({ allowedEmails }: AdminLoginFormProps) {
       <button
         type="submit"
         disabled={loading}
-        className="mt-6 min-h-[48px] w-full rounded-full bg-cta px-6 py-3 font-bold text-cta-foreground shadow-md disabled:opacity-60"
+        className={`mt-6 min-h-[48px] w-full ${CHAT_CTA_BUTTON_CLASS}`}
       >
         {loading ? "Signing in…" : "Sign in"}
       </button>
+      </div>
     </form>
   );
 }

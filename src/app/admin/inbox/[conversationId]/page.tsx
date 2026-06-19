@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { AdminThread } from "@/components/admin/AdminThread";
 import { isAdminAuthenticated } from "@/lib/admin-auth";
 import { parseUuid } from "@/lib/chat/validation";
+import { PAGE_SECTION_CLASS } from "@/lib/pageStyles";
 
 export const metadata: Metadata = {
   title: "Conversation",
@@ -23,7 +24,7 @@ export default async function AdminConversationPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-[70dvh] bg-gradient-to-b from-background via-blue-50/40 to-amber-50/30">
+    <div className={`min-h-[70dvh] ${PAGE_SECTION_CLASS}`}>
       <AdminThread conversationId={conversationId} />
     </div>
   );

@@ -8,6 +8,10 @@ import {
   MessageList,
 } from "@/components/chat/MessageList";
 import { useConversationMessages } from "@/hooks/useConversationMessages";
+import {
+  CHAT_SHELL_ACCENT,
+  CHAT_SHELL_CLASS,
+} from "@/lib/chatStyles";
 
 export function AdminThread({ conversationId }: { conversationId: string }) {
   const router = useRouter();
@@ -53,7 +57,8 @@ export function AdminThread({ conversationId }: { conversationId: string }) {
         ← Back to inbox
       </Link>
 
-      <div className="mt-4 rounded-2xl border border-blue-100/85 bg-white shadow-md">
+      <div className={`mt-4 ${CHAT_SHELL_CLASS}`}>
+        <div className={CHAT_SHELL_ACCENT} aria-hidden />
         <div className="border-b border-blue-100/80 px-4 py-4 sm:px-6">
           <h1 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">
             {conversation?.visitor_name ?? "Conversation"}
@@ -81,6 +86,7 @@ export function AdminThread({ conversationId }: { conversationId: string }) {
             placeholder="Type your reply to the customer…"
             disabled={sending}
             onSend={sendReply}
+            embedded
           />
           {sendError ? (
             <p className="mt-2 text-sm font-medium text-red-600" role="alert">

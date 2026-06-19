@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import type { ConversationWithPreview } from "@/lib/chat/types";
+import {
+  CHAT_INBOX_ITEM_CLASS,
+  PAGE_TITLE_RULE_CLASS,
+} from "@/lib/chatStyles";
 
 export function AdminInboxList() {
   const router = useRouter();
@@ -57,14 +61,15 @@ export function AdminInboxList() {
           <h1 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
             Dispatch inbox
           </h1>
-          <p className="mt-1 text-sm text-muted">
+          <div className={PAGE_TITLE_RULE_CLASS} aria-hidden />
+          <p className="mt-2 text-sm text-muted">
             Customer chat threads from the website.
           </p>
         </div>
         <button
           type="button"
           onClick={() => void signOut()}
-          className="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-blue-50"
+          className="rounded-full border border-blue-200 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-amber-300/80 hover:bg-blue-50"
         >
           Sign out
         </button>
@@ -80,7 +85,7 @@ export function AdminInboxList() {
       ) : null}
 
       {!loading && !error && conversations.length === 0 ? (
-        <p className="mt-10 rounded-2xl border border-dashed border-blue-200 bg-blue-50/40 p-8 text-center text-sm text-muted">
+        <p className="mt-10 rounded-2xl border border-dashed border-blue-200/90 bg-gradient-to-br from-blue-50/50 to-amber-50/40 p-8 text-center text-sm text-muted">
           No messages yet. When a customer starts a chat on{" "}
           <Link href="/chat" className="font-semibold text-accent hover:underline">
             /chat
@@ -94,7 +99,7 @@ export function AdminInboxList() {
           <li key={conversation.id}>
             <Link
               href={`/admin/inbox/${conversation.id}`}
-              className="block rounded-2xl border border-blue-100/90 bg-white p-4 shadow-sm transition hover:border-amber-300/80 hover:shadow-md"
+              className={CHAT_INBOX_ITEM_CLASS}
             >
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>

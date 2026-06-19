@@ -1,7 +1,9 @@
 import type { Message } from "@/lib/chat/types";
-
-const inputClass =
-  "min-h-12 w-full rounded-xl border border-blue-100 bg-white px-4 py-3 text-base text-slate-900 outline-none ring-amber-300/40 focus:ring-2";
+import {
+  CHAT_CTA_BUTTON_CLASS,
+  CHAT_INPUT_CLASS,
+  chatBubbleClass,
+} from "@/lib/chatStyles";
 
 export function MessageList({
   messages,
@@ -25,20 +27,19 @@ export function MessageList({
           viewer === "visitor"
             ? message.sender_type === "visitor"
             : message.sender_type === "admin";
+        const isDispatch = message.sender_type === "admin";
 
         return (
           <li
             key={message.id}
             className={`flex ${isOwn ? "justify-end" : "justify-start"}`}
           >
-            <div
-              className={[
-                "max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm sm:max-w-[75%] sm:text-base",
-                isOwn
-                  ? "rounded-br-md bg-blue-600 text-white"
-                  : "rounded-bl-md border border-blue-100/90 bg-white text-slate-800",
-              ].join(" ")}
-            >
+            <div className={chatBubbleClass(isOwn)}>
+              {!isOwn && isDispatch ? (
+                <p className="mb-1 text-[0.65rem] font-semibold uppercase tracking-wider text-accent">
+                  Dispatch
+                </p>
+              ) : null}
               <p className="whitespace-pre-wrap break-words">{message.body}</p>
               <p
                 className={`mt-1.5 text-[0.7rem] ${isOwn ? "text-blue-100" : "text-muted"}`}
@@ -62,14 +63,21 @@ export function ChatComposer({
   placeholder,
   disabled,
   onSend,
+  embedded = false,
 }: {
   placeholder: string;
   disabled?: boolean;
   onSend: (body: string) => Promise<void>;
+  /** When true, parent already provides a top border (chat thread footer). */
+  embedded?: boolean;
 }) {
   return (
     <form
-      className="flex flex-col gap-3 border-t border-blue-100/80 pt-4 sm:flex-row sm:items-end"
+      className={
+        embedded
+          ? "flex flex-col gap-3 sm:flex-row sm:items-end"
+          : "flex flex-col gap-3 border-t border-blue-100/80 pt-4 sm:flex-row sm:items-end"
+      }
       onSubmit={async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -87,13 +95,13 @@ export function ChatComposer({
           rows={3}
           placeholder={placeholder}
           disabled={disabled}
-          className={`${inputClass} min-h-[4.5rem] resize-y`}
+          className={`${CHAT_INPUT_CLASS} min-h-[4.5rem] resize-y`}
         />
       </label>
       <button
         type="submit"
         disabled={disabled}
-        className="min-h-[52px] shrink-0 rounded-full bg-cta px-8 py-3.5 text-base font-bold text-cta-foreground shadow-lg shadow-amber-900/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-cta-hover disabled:cursor-not-allowed disabled:opacity-60 sm:min-h-[48px]"
+        className={`${CHAT_CTA_BUTTON_CLASS} shrink-0 sm:min-h-[48px]`}
       >
         Send
       </button>
@@ -101,4 +109,4 @@ export function ChatComposer({
   );
 }
 
-export { inputClass };
+export { CHAT_INPUT_CLASS as inputClass };

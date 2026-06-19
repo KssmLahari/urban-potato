@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { COMPANY, getGoogleMapsUrl } from "@/lib/company";
-import { PRIMARY_NAV } from "@/lib/nav";
+import { PRIMARY_NAV, STAFF_PORTAL } from "@/lib/nav";
 import { PUBLIC_SITE_ORIGIN } from "@/lib/site";
 import { LogoMark } from "./LogoMark";
 
@@ -91,6 +91,12 @@ export function SiteFooter() {
               className="inline-flex min-h-[44px] items-center text-base font-medium text-muted outline-none ring-accent/40 transition-colors duration-200 hover:text-accent focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
             >
               Feedback
+            </Link>
+            <Link
+              href={STAFF_PORTAL.href}
+              className="inline-flex min-h-[44px] items-center text-base font-semibold text-accent outline-none ring-accent/40 transition-colors duration-200 hover:text-accent-hover focus-visible:rounded focus-visible:ring-2 focus-visible:ring-offset-2 sm:min-h-0 sm:self-end sm:text-sm"
+            >
+              {STAFF_PORTAL.label}
             </Link>
           </div>
         </div>
